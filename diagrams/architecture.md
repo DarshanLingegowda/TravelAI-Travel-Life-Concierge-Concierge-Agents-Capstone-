@@ -1,2 +1,0 @@
-
-![Uploading architecture.png…]()
