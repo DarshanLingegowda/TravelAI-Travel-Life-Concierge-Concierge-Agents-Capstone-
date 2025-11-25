@@ -1,1 +1,10 @@
-
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+openai
+pandas
+numpy
+aiohttp
+pinecone-client
+pytest
