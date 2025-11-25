@@ -83,50 +83,30 @@ Step-level tracing (which agent called which tool)
 
 Automatic pause/resume for long searches
 
-Architecture
-                            ┌──────────────────────┐
-                            │   User Request       │
-                            └──────────┬───────────┘
-                                       │
-                             ┌─────────▼────────┐
-                             │ Travel Orchestrator │
-                             └───────┬───────────┘
-         ┌──────────────┬──────────┼───────────┬──────────────┐
-         ▼              ▼           ▼           ▼               ▼
- Planner Agent   Budget Agent   Search Agent   Safety Agent   Memory Agent
- (LLM)            (LLM)          (Google)       (LLM)          (Storage)
-         └──────────────┴──────────┼───────────┴──────────────┘
-                                    ▼
-                           Refinement Agent (LLM)
-                                    ▼
-                           Final Travel Plan Output
 
 Project Structure
-travelai/
-│
-├── agents/
-│   ├── planner_agent.py
-│   ├── budget_agent.py
-│   ├── search_agent.py
-│   ├── safety_agent.py
-│   ├── refine_agent.py
-│
-├── tools/
-│   ├── search_tool.py
-│   ├── date_parser.py
-│   ├── price_ranker.py
-│
-├── memory/
-│   ├── session_state.py
-│   ├── preference_store.py
-│
-├── orchestrator/
-│   ├── travel_orchestrator.py
-│
-├── main.py
-├── requirements.txt
-├── LICENSE
-└── README.md
+TravelAI/
+ ├── pyproject.toml
+ ├── .gitignore
+ ├── app.py
+ ├── settings.py
+ ├── travelai/
+ │    ├── __init__.py
+ │    ├── agents/
+ │    │    ├── base_agent.py
+ │    │    └── travel_agent.py
+ │    ├── tools/
+ │    │    ├── weather_tool.py
+ │    │    └── location_tool.py
+ │    ├── memory/
+ │    │    └── local_memory.py
+ │    └── services/
+ │         └── planning_service.py
+ ├── tests/
+ │    └── test_basic.py
+ └── diagrams/
+      └── architecture.md
+
 
 🛠️ Installation
 1. Clone Repo
