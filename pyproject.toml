@@ -1,0 +1,23 @@
+[project]
+name = "travelai"
+version = "0.1.0"
+description = "Production-grade multi-agent travel assistant powered by OpenAI LLMs"
+authors = [
+  { name = "TravelAI" }
+]
+requires-python = ">=3.10"
+dependencies = [
+  "openai",
+  "pydantic",
+  "python-dotenv",
+  "fastapi",
+  "uvicorn[standard]",
+  "aiohttp",
+  "httpx",
+  "numpy",
+  "pandas"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
