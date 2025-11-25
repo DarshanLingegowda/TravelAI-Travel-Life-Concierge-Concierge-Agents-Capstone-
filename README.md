@@ -1,35 +1,62 @@
-# TravelAI — Travel & Life Concierge (Concierge Agents Capstone)
+# TravelAI
 
+A production‑grade, modular AI agent system specializing in travel planning, trip optimization, bookings, and real‑time information retrieval using OpenAI LLMs. The project follows clean architecture principles and is structured for scalability, observability, and deployment.
 
-**Track:** Concierge Agents
+## Features
 
+* Multi‑agent orchestration (Planner, Booking, Knowledge)
+* OpenAI LLM‑powered reasoning
+* Tool integrations (weather, flights, search)
+* Memory and session management
+* Modular service layer (LLM client, evaluation, observability)
+* Config-driven environment
+* Fully typed Python codebase
 
-## Overview
-TravelAI is a multi-agent personal concierge that helps users plan short trips and daily itineraries, combining web research, cost estimation, and personalized recommendations. It demonstrates multiple agent patterns from the Agents Intensive course: planner, researcher, scheduler, writer, and evaluator.
+## Repository Structure
 
+```
+travelai/
+│── README.md
+│── pyproject.toml
+│── .gitignore
+│── travelai/
+│   ├── __init__.py
+│   ├── config/
+│   │   └── settings.py
+│   ├── agents/
+│   │   ├── planner.py
+│   │   ├── booking.py
+│   │   └── knowledge.py
+│   ├── tools/
+│   │   ├── weather.py
+│   │   ├── flights.py
+│   │   └── mcp_google_search.py
+│   ├── memory/
+│   │   ├── session_manager.py
+│   │   └── memory_bank.py
+│   ├── services/
+│   │   ├── observability.py
+│   │   ├── llm_client.py
+│   │   └── evaluation.py
+│   └── app.py
+│── tests/
+│   └── test_basic.py
+│── diagrams/
+│   └── architecture.png
+```
 
-## Project Pitch
-**Problem:** Planning short trips and daily itineraries is time-consuming and error-prone.
+## Installation
 
-
-**Solution:** A multi-agent personal concierge that: (1) researches destinations and activities, (2) builds an itinerary and cost estimate, (3) outputs a user-ready itinerary and packing checklist, and (4) self-evaluates and iterates.
-
-
-**Value:** Automates repetitive planning steps, saves hours of research, and generates consistently structured itineraries.
-
-
-## Features Demonstrated
-- Multi-agent system (Planner, Researcher, Scheduler, Writer, Evaluator)
-- Agent tools (web search mock, calculator, file writer)
-- Memory (simple vector store or Pinecone optional)
-- Sessions & state (simple session id for continuity)
-- Observability (JSON logs of agent steps)
-- Agent evaluation (LLM-based rubric)
-- Kaggle submission generator (CSV with `id,response`)
-
-
-## Quickstart
-1. Copy `.env.example` to `.env` and set `OPENAI_API_KEY`. Optionally enable Pinecone.
-2. Create virtual environment and install:
 ```bash
-pip install -r requirements.txt
+pip install -e .
+```
+
+## Run
+
+```bash
+python -m travelai.app
+```
+
+## License
+
+MIT License
